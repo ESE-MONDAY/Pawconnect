@@ -16,7 +16,7 @@ Welcome to PawConnect, where pet owners come together to celebrate the joy and c
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/pawconnect.git
+   git clone https://github.com/ESE-MONDAY/pawconnect.git
    cd pawconnect
    ```
 
