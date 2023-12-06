@@ -13,7 +13,7 @@ export const Button = (props: {
         disabled={disabled}
         type={type}
         onClick={onClick}
-        className={` border-0 capitalize px-6 font-bold rounded-md ${buttonStyle}`}>
+        className={` border-0 capitalize px-4 py-2 font-bold rounded-md ${buttonStyle}`}>
         {children}
       </button>
     )

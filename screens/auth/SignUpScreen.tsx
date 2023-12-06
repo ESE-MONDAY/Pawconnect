@@ -7,7 +7,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import {Input} from '@/components/Form/Input'
 import PasswordInput from '@/components/Form/PasswordInput';
 import { Button } from '@/components/Form/Button';
-import {MdLockOutline} from 'react-icons/md'
+import {MdLockOutline} from 'react-icons/md';
+import { account, ID } from '@/app/appwrite';
 
 
 interface formValues{
@@ -48,6 +49,17 @@ const SignUpScreen: React.FC<RegistrationScreenProps> = ({onActionChange }) => {
   const handleSwitch = () => {
     onActionChange('signin');
   };
+
+
+  const createNewUser = async (values: formValues) => {
+    const { userName, email, password } = values;
+    try {
+      const session =  await account.create(ID.unique(), values.email, values.password);
+      console.log(session)
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className='max-w-[500px] mx-auto  bg-white mt-60 px-4 py-2 '>
           <h2 className='font-semibold text-lg sm:text-2xl'>Join Our Community</h2>
@@ -55,7 +67,7 @@ const SignUpScreen: React.FC<RegistrationScreenProps> = ({onActionChange }) => {
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting }) => {
-              console.log(values)
+              createNewUser(values);
               setTimeout(() => {
                 console.log(values)
                 setSubmitting(false);
@@ -65,7 +77,7 @@ const SignUpScreen: React.FC<RegistrationScreenProps> = ({onActionChange }) => {
             {({ values, touched, errors, handleChange, handleBlur, handleSubmit }) =>{
               const { email, password, userName } = values;
               return(
-                <div className='mt-8 '>
+                <div className='mt-8 mb-8 '>
                    <Input
                     withICon={true}
                     type={'userName'}
@@ -119,7 +131,7 @@ const SignUpScreen: React.FC<RegistrationScreenProps> = ({onActionChange }) => {
             }}
 
           </Formik>
-          <div className="w-full gap-2 flex mt-4 flex-row justify-end p-4 items-center ">
+          <div className="w-full gap-2 flex mt-16 flex-row justify-end p-4 items-center ">
                   <p className="text-sm font-satoshiRegular text-secondary6">Already have an account?</p>{' '}
                   <button onClick={handleSwitch} className="text-[16px]  text-secondary6 font-satoshiBold hover:underline hover:underline-offset-2">
                     Login

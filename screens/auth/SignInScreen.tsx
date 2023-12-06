@@ -6,6 +6,8 @@ import PasswordInput from '@/components/Form/PasswordInput';
 import { Button } from '@/components/Form/Button';
 import {MdLockOutline} from 'react-icons/md'
 import Link from 'next/link';
+import { sign } from 'crypto';
+import { account, ID } from '@/app/appwrite';
 
 
 interface formValues{
@@ -40,14 +42,23 @@ const SignInScreen: React.FC<SignInScreenProps> = ({onActionChange}) => {
   const handleSwitch = () => {
     onActionChange('registration');
   };
+
+  const login = async(values: formValues) =>{
+    try {
+      const session =  await account.createEmailSession(values.email, values.password);
+      console.log(session)
+    } catch (error) { 
+      console.log(error)
+    }
+  }
   return (
-    <div className='max-w-[500px] mx-auto  bg-white mt-40 px-4 py-2 '>
-          <h2 className='font-semibold text-lg sm:text-2xl'>Welcome Back</h2>
+      <div className='flex flex-col gap-4'>
+      <h2 className='font-semibold text-lg sm:text-2xl'>Welcome Back, Sign in to PawsConnect</h2>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting }) => {
-              console.log(values)
+              login(values);
               setTimeout(() => {
                 console.log(values)
                 setSubmitting(false);
@@ -100,15 +111,15 @@ const SignInScreen: React.FC<SignInScreenProps> = ({onActionChange}) => {
             }}
 
           </Formik>
-          <div className='mt-4 w-full gap-2 flex flex-row justify-end p-4 items-center '>
-                        <p className='text-sm font-satoshiRegular  text-secondary6'>New to PawConnect?</p> 
+          <div className='mt-18 w-full gap-2 flex flex-row justify-end items-center '>
+                        <p className='text-sm font-satoshiRegular  text-secondary6 '>New to PawConnect?</p> 
                         <button onClick={handleSwitch} className="text-[16px]  text-secondary6 font-satoshiBold hover:underline hover:underline-offset-2">
 							Create Account
 						</button>
                     </div>
+      </div>
+          
 
-
-        </div>
   )
 }
 

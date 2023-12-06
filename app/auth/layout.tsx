@@ -22,8 +22,9 @@ export default function Layout({
                   <p>Become friends with your pet</p>
                 </div>
               </div>
-                <div className='col-span-3 sm:col-span-2'>
-                {children}
+                <div className='col-span-3 sm:col-span-2 px-4 py-2 h-screen'>
+                  <div className='mt-20 max-w-[500px] mx-auto '> {children}</div>
+               
 
                 </div>
             </div>
