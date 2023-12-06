@@ -1,10 +1,10 @@
-# PawConnect: Unleash the Power of Pet Connections
+# PawsConnect: Unleash the Power of Pet Connections
 
 Welcome to PawConnect, where pet owners come together to celebrate the joy and companionship that our furry friends bring into our lives. PawConnect is more than just a platform; it's a vibrant community designed to connect pet lovers, share experiences, and create lasting memories.
 
 ## Features
 
-- **Connect with Pet Owners:** PawConnect provides a space for pet owners to connect with like-minded individuals who share a passion for their furry companions.
+- **Connect with Pet Owners:** PawsConnect provides a space for pet owners to connect with like-minded individuals who share a passion for their furry companions.
 
 - **Celebrate Pet Joy:** Share photos, stories, and moments of joy with your pets. Whether it's a playful day at the park or a cozy evening indoors, PawConnect is the place to celebrate the special moments you share with your pets.
 
@@ -16,7 +16,7 @@ Welcome to PawConnect, where pet owners come together to celebrate the joy and c
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/pawconnect.git
+   git clone https://github.com/ESE-MONDAY/pawconnect.git
    cd pawconnect
    ```
 
@@ -38,7 +38,7 @@ We welcome contributions from the community to make PawConnect an even better pl
 
 ## Join the Community
 
-Connect with other pet enthusiasts, share your experiences, and be part of the PawConnect community.
+Connect with other pet enthusiasts, share your experiences, and be part of the PawConnect community. Visit [PawsConnect](https://www.pawsconnect.co/)
 
 ## License
 
